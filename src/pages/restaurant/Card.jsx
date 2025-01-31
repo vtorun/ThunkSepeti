@@ -6,16 +6,11 @@ const Card = ({ product }) => {
   const { cart } = useSelector((store) => store.cartReducer);
   const dispatch = useDispatch();
 
-  // ekrana basılan ürün sepette bulunuyor mu ?
   const found = cart?.find((cartItem) => cartItem.id === product.id);
-
-  // + butonuna tıklanınca
   const handleAdd = () => {
     found
-      ? // eleman sepette varsa miktarını 1 attır
-        dispatch(updateItem(found.id, found.amount + 1))
-      : // eleman sepette yoksa sepete ekle
-        dispatch(createItem(product));
+      ? dispatch(updateItem(found.id, found.amount + 1))
+      : dispatch(createItem(product));
   };
 
   return (

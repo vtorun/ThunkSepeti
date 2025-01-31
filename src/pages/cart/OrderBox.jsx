@@ -1,8 +1,5 @@
 const OrderBox = ({ cart }) => {
-    // sepetteki toplam ürün adedi
     const totalAmount = cart.reduce((total, i) => total + i.amount, 0);
-  
-    // sepetteki toplam fiyat
     const totalPrice = cart.reduce((total, i) => total + i.amount * i.price, 0);
   
     return (
